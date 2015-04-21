@@ -11,7 +11,7 @@ Restaurant.controller('PizzaCtrl', function PizzaCtrl($scope, RestaurantFactory)
 
   $scope.pizzaPrice = function() {
 
-    
+
   };
 
-}
+});
