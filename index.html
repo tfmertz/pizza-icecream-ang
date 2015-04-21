@@ -19,6 +19,7 @@
         <form id="input" ng-submit="addPizza()">
           <div class="form-group">
             <label for="size">Size: </label><br>
+              <input type="radio" name="size" ng-model="pizzaSize" value="slice"> Slice<br>
               <input type="radio" name="size" ng-model="pizzaSize" value="small"> Small -- 12"<br>
               <input type="radio" name="size" ng-model="pizzaSize" value="medium"> Medium -- 14"<br>
               <input type="radio" name="size" ng-model="pizzaSize" value="large"> Large -- 16"
@@ -31,15 +32,43 @@
       <div class="col-sm-6">
         <h4>Your Order</h4>
         <ul>
-          <li ng-repeat="item in pizzas">You got a {{item.size}} pizza for ${{item.price}} <a class="text-danger pull-right" href="#" ng-click="deletePizza(item)">X</a></li>
+          <li ng-repeat="item in pizzas">1 {{item.size}} pizza for ${{item.price}} <button class="btn btn-danger btn-xs" ng-click="deletePizza(item)">X</button></li>
         </ul>
       </div>
 
       <div class="col-sm-2">
-        <h4 ng-show="pizzas.length">Your Total {{ pizzaPrice() }}</h4>
+        <h4 ng-show="pizzas.length">Your Total: $ {{ pizzaPrice() }}</h4>
       </div>
 
     </div>
+
+    <div class="row" ng-controller="IceCreamCtrl">
+      <div class="col-sm-4">
+        <h3>Order Ice Cream</h3>
+
+        <form id="input" ng-submit="addIceCream()">
+          <div class="form-group">
+            <label for="scoops">Scoops:</label>
+            <select id="scoops" ng-model="scoops" ng-options="opt for opt in scoopOptions"></select>
+          </div>
+
+          <button type="submit" class="btn btn-info">Order</button>
+        </form>
+      </div>
+
+      <div class="col-sm-6">
+        <h4>Your Order</h4>
+        <ul>
+          <li ng-repeat="item in iceCream">{{item.scoops}} scoops for ${{item.price}}<button class="btn btn-danger btn-xs" ng-click="deleteIceCream(item)">X</button></li>
+        </ul>
+      </div>
+
+      <div class="col-sm-2">
+        <h4 ng-show="iceCream.length">Your Total: $ {{ icePrice() }}</h4>
+      </div>
+
+    </div>
+
   </div>
 </body>
 </html>
