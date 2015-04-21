@@ -1,5 +1,6 @@
 Restaurant.controller('PizzaCtrl', function PizzaCtrl($scope, RestaurantFactory) {
   $scope.pizzas = [];
+  $scope.RestaurantFactory = RestaurantFactory;
 
   $scope.addPizza = function() {
 
@@ -11,7 +12,12 @@ Restaurant.controller('PizzaCtrl', function PizzaCtrl($scope, RestaurantFactory)
 
   $scope.pizzaPrice = function() {
 
+    return $scope.RestaurantFactory.calcPrice($scope.pizzas);
 
+  };
+
+  $scope.deletePizza = function(pizza) {
+    
   };
 
 });

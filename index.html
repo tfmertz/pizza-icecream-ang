@@ -19,18 +19,20 @@
         <form id="input" ng-submit="addPizza()">
           <div class="form-group">
             <label for="size">Size: (in inches)</label><br>
-              <input type="radio" name="size" ng-model="pizzaSize" value="small">12<br>
-              <input type="radio" name="size" ng-model="pizzaSize" value="medium">14<br>
-              <input type="radio" name="size" ng-model="pizzaSize" value="large">16
+              <input type="radio" name="size" ng-model="pizzaSize" value="small"> Small -- 12"<br>
+              <input type="radio" name="size" ng-model="pizzaSize" value="medium"> Medium -- 14"<br>
+              <input type="radio" name="size" ng-model="pizzaSize" value="large"> Large -- 16"
           </div>
 
           <button type="submit" class="btn btn-info">Order</button>
         </form>
 
-        <h4>Pizza List</h4>
+        <h4>Your Order</h4>
         <ul>
-          <li ng-repeat="item in pizzas">{{item.size}}</li>
+          <li ng-repeat="item in pizzas">You got a {{item.size}} pizza for ${{item.price}}</li>
         </ul>
+
+        <h4 ng-show="pizzas.length">Your Total {{ pizzaPrice() }}</h4>
 
       </div>
 
